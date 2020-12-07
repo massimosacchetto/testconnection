@@ -15,7 +15,7 @@ namespace testconn
     public partial class Form1 : Form
         
     {
-        const int PINGVETT = 20; 
+        const int PINGVETT = 30; 
         //public int pingDeth = 20;
         public int[] chartMainSeries = new int[PINGVETT];
         public int[] chartSeries1 = new int[PINGVETT];
@@ -26,6 +26,8 @@ namespace testconn
         {
             InitializeComponent();
             Console.Out.WriteLine("Program started");
+            //chartSeries1[1] = 80; //Cambiare questo parametro se si vuole dare una scala massima
+            //chartSeries2[1] = 80; //Cambiare questo parametro se si vuole dare una scala massima
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,6 +143,7 @@ namespace testconn
                 // Add series.
                 series1.Points.AddXY(i, chartSeries1[i]);
             }
+            chart1.ChartAreas[0].RecalculateAxesScale();
         }
         private void generagrafico2()
         {
@@ -161,6 +164,7 @@ namespace testconn
                 // Add series.
                 series1.Points.AddXY(i, chartSeries2[i]);
             }
+            chart2.ChartAreas[0].RecalculateAxesScale();
         }
         private void label1_Click(object sender, EventArgs e)
         {
